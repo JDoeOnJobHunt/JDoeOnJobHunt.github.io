@@ -1,98 +1,150 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HBee Projekt</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-  <style>
-    body { font-family: 'Inter', sans-serif; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HBEE</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+body { font-family: 'Inter', sans-serif; }
+
+/* Flip Cards */
+.flip-card {
+  perspective: 1000px;
+}
+.flip-inner {
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+.flip-card:hover .flip-inner {
+  transform: rotateY(180deg);
+}
+.flip-front, .flip-back {
+  backface-visibility: hidden;
+}
+.flip-back {
+  transform: rotateY(180deg);
+}
+</style>
+
 </head>
+
 <body class="bg-white text-gray-900">
 
-  <!-- NAV -->
-  <header class="flex justify-between items-center px-8 py-6">
-    <h1 class="text-xl font-semibold">HBee</h1>
-    <nav class="space-x-6 text-sm">
-      <a href="#" class="hover:text-gray-600">Projekt</a>
-      <a href="#" class="hover:text-gray-600">Vorteile</a>
-      <a href="#" class="hover:text-gray-600">Kontakt</a>
-    </nav>
-  </header>
+<!-- NAV -->
+<header class="fixed w-full bg-white/80 backdrop-blur z-50 flex justify-between items-center px-10 py-5">
+  <h1 class="font-semibold text-lg">HBEE</h1>
+  <nav class="space-x-6 text-sm">
+    <a href="#about">Über uns</a>
+    <a href="#services">Dienstleistungen</a>
+    <a href="#contact">Kontakt</a>
+  </nav>
+</header>
 
-  <!-- HERO -->
-  <section class="text-center px-6 py-24 max-w-4xl mx-auto">
-    <h2 class="text-5xl font-light leading-tight mb-6">
-      Nachhaltigkeit sichtbar machen
-    </h2>
-    <p class="text-gray-600 text-lg mb-8">
-      Unterstütze ein modernes Bienenprojekt und erhalte hochwertigen Content für dein Unternehmen.
-    </p>
-    <button class="bg-black text-white px-6 py-3 rounded-full hover:bg-gray-800 transition">
-      Jetzt Anteil sichern
-    </button>
-  </section>
+<!-- HERO -->
+<section class="h-screen flex items-center justify-center text-center bg-[url('https://images.unsplash.com/photo-1509395176047-4a66953fd231')] bg-cover bg-center">
+  <div class="bg-black/50 p-10 rounded-xl text-white max-w-2xl">
+    <h2 class="text-5xl font-light mb-6">Sichere dir deine Stromversorgung</h2>
+    <a href="#contact" class="bg-white text-black px-6 py-3 rounded-full">Kontakt</a>
+  </div>
+</section>
 
-  <!-- FEATURES -->
-  <section class="grid md:grid-cols-3 gap-10 px-10 py-20 max-w-6xl mx-auto">
-    <div>
-      <h3 class="font-semibold mb-3">Live Einblicke</h3>
-      <p class="text-gray-600">Verfolge das Bienenvolk in Echtzeit über Kamera und Updates.</p>
-    </div>
-    <div>
-      <h3 class="font-semibold mb-3">Marketing Content</h3>
-      <p class="text-gray-600">Professionelles Material für deine Website & Social Media.</p>
-    </div>
-    <div>
-      <h3 class="font-semibold mb-3">Nachhaltigkeit</h3>
-      <p class="text-gray-600">Zeige echtes Engagement im Bereich CSR.</p>
-    </div>
-  </section>
+<!-- CONTACT NOW -->
+<section class="py-24 text-center">
+  <h3 class="text-3xl font-light mb-4">Ihr Parther für energie und finanzierung</h3>
+  <a href="#contact" class="bg-black text-white px-8 py-3 rounded-full">Kontakt</a>
+</section>
 
-  <!-- PRICING -->
-  <section class="bg-gray-50 py-20 px-6">
-    <div class="max-w-5xl mx-auto grid md:grid-cols-3 gap-8">
-      
-      <div class="bg-white p-8 rounded-2xl shadow-sm">
-        <h4 class="font-semibold mb-4">Starter</h4>
-        <p class="text-3xl mb-4">200€</p>
-        <p class="text-gray-600 mb-6">1 Anteil + Honig + Kamera</p>
-        <button class="w-full bg-black text-white py-2 rounded-full">Wählen</button>
+<!-- ABOUT -->
+<section id="about" class="py-24 px-6 max-w-6xl mx-auto">
+  <h3 class="text-3xl font-light mb-10 text-center">Über uns und unsere Mission</h3>
+
+  <div class="bg-gray-50 p-8 rounded-xl mb-12 text-center text-gray-600">
+    Wir sind ein modernes Unternehmen im Bereich nachhaltiger Energie- und Finanzierungslösungen. 
+    Unser Ziel ist es, innovative Konzepte zu entwickeln und unseren Kunden eine sichere Zukunft zu ermöglichen.
+  </div>
+
+  <div class="grid md:grid-cols-3 gap-8">
+    
+    <!-- CARD -->
+    <div class="flip-card h-64">
+      <div class="flip-inner relative w-full h-full">
+        <div class="flip-front absolute w-full h-full bg-cover rounded-xl" 
+             style="background-image:url('https://images.unsplash.com/photo-1509395176047-4a66953fd231')"></div>
+        <div class="flip-back absolute w-full h-full bg-black text-white flex items-center justify-center rounded-xl p-4">
+          Nachhaltige Energie
+        </div>
       </div>
-
-      <div class="bg-black text-white p-8 rounded-2xl shadow-lg scale-105">
-        <h4 class="font-semibold mb-4">Beliebt</h4>
-        <p class="text-3xl mb-4">500€</p>
-        <p class="mb-6">3 Anteile + Content + Plakette</p>
-        <button class="w-full bg-white text-black py-2 rounded-full">Wählen</button>
-      </div>
-
-      <div class="bg-white p-8 rounded-2xl shadow-sm">
-        <h4 class="font-semibold mb-4">Pro</h4>
-        <p class="text-3xl mb-4">1000€</p>
-        <p class="text-gray-600 mb-6">8 Anteile + Premium Content</p>
-        <button class="w-full bg-black text-white py-2 rounded-full">Wählen</button>
-      </div>
-
     </div>
-  </section>
 
-  <!-- CTA -->
-  <section class="text-center py-24 px-6">
-    <h3 class="text-3xl font-light mb-6">
-      Werde Teil des Projekts
-    </h3>
-    <button class="bg-black text-white px-8 py-3 rounded-full">
-      Jetzt starten
-    </button>
-  </section>
+    <div class="flip-card h-64">
+      <div class="flip-inner relative w-full h-full">
+        <div class="flip-front absolute w-full h-full bg-cover rounded-xl" 
+             style="background-image:url('https://images.unsplash.com/photo-1497436072909-60f360e1d4b1')"></div>
+        <div class="flip-back absolute w-full h-full bg-black text-white flex items-center justify-center rounded-xl p-4">
+          Innovative Lösungen
+        </div>
+      </div>
+    </div>
 
-  <!-- FOOTER -->
-  <footer class="text-center text-sm text-gray-500 py-10">
-    © 2026 HBee Projekt
-  </footer>
+    <div class="flip-card h-64">
+      <div class="flip-inner relative w-full h-full">
+        <div class="flip-front absolute w-full h-full bg-cover rounded-xl" 
+             style="background-image:url('https://images.unsplash.com/photo-1466611653911-95081537e5b7')"></div>
+        <div class="flip-back absolute w-full h-full bg-black text-white flex items-center justify-center rounded-xl p-4">
+          Zukunftssicherheit
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="py-24 bg-gray-50 px-6">
+  <h3 class="text-3xl font-light mb-12 text-center">Dienstleistungen</h3>
+
+  <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-10 text-center">
+    <div>
+      <h4 class="font-semibold mb-3">Energieberatung</h4>
+      <p class="text-gray-600">Individuelle Lösungen für Ihre Stromversorgung</p>
+    </div>
+    <div>
+      <h4 class="font-semibold mb-3">Finanzierung</h4>
+      <p class="text-gray-600">Flexible Modelle für nachhaltige Projekte</p>
+    </div>
+    <div>
+      <h4 class="font-semibold mb-3">Projektumsetzung</h4>
+      <p class="text-gray-600">Von Planung bis Realisierung</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="py-24 px-6 text-center">
+  <h3 class="text-3xl font-light mb-8">Kontakt aufnehmen</h3>
+
+  <form class="max-w-xl mx-auto grid gap-4">
+    <input type="text" placeholder="Name" class="p-3 border rounded">
+    <input type="email" placeholder="E-Mail" class="p-3 border rounded">
+    <textarea placeholder="Nachricht" class="p-3 border rounded h-32"></textarea>
+    <button class="bg-black text-white py-3 rounded-full">Absenden</button>
+  </form>
+</section>
+
+<!-- IMPRESSUM -->
+<section class="py-16 bg-gray-100 text-center text-sm text-gray-600">
+  <h4 class="mb-4 font-semibold">HBEE GmbH</h4>
+  <p>Musterstraße 1<br>12345 Musterstadt<br>Deutschland</p>
+</section>
+
+<!-- FOOTER -->
+<footer class="py-6 text-center text-sm text-gray-500 border-t">
+  <a href="#">Impressum</a> | <a href="#">AGB</a>
+</footer>
 
 </body>
 </html>
