@@ -3,99 +3,117 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HBEE</title>
+<title>HBEE – Energie & Finanzierung</title>
 
 <script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        primary: "#0F172A",
+        accent: "#2563EB",
+        soft: "#F8FAFC"
+      }
+    }
+  }
+}
+</script>
 
 <style>
 body { font-family: 'Inter', sans-serif; }
 
 /* Flip Cards */
-.flip-card {
-  perspective: 1000px;
-}
+.flip-card { perspective: 1000px; }
 .flip-inner {
   transition: transform 0.6s;
   transform-style: preserve-3d;
 }
-.flip-card:hover .flip-inner {
-  transform: rotateY(180deg);
-}
-.flip-front, .flip-back {
-  backface-visibility: hidden;
-}
-.flip-back {
-  transform: rotateY(180deg);
-}
+.flip-card:hover .flip-inner { transform: rotateY(180deg); }
+.flip-front, .flip-back { backface-visibility: hidden; }
+.flip-back { transform: rotateY(180deg); }
 </style>
 
 </head>
 
-<body class="bg-white text-gray-900">
+<body class="bg-soft text-gray-900">
 
 <!-- NAV -->
-<header class="fixed w-full bg-white/80 backdrop-blur z-50 flex justify-between items-center px-10 py-5">
-  <h1 class="font-semibold text-lg">HBEE</h1>
+<header class="fixed w-full bg-white/80 backdrop-blur z-50 flex justify-between items-center px-10 py-5 border-b border-gray-100">
+  <h1 class="font-semibold text-lg tracking-wide">HBEE</h1>
   <nav class="space-x-6 text-sm">
-    <a href="#about">Über uns</a>
-    <a href="#services">Dienstleistungen</a>
-    <a href="#contact">Kontakt</a>
+    <a href="#about" class="hover:text-accent transition">Über uns</a>
+    <a href="#services" class="hover:text-accent transition">Dienstleistungen</a>
+    <a href="#contact" class="hover:text-accent transition">Kontakt</a>
   </nav>
 </header>
 
 <!-- HERO -->
-<section class="h-screen flex items-center justify-center text-center bg-[url('https://images.unsplash.com/photo-1509395176047-4a66953fd231')] bg-cover bg-center">
-  <div class="bg-black/50 p-10 rounded-xl text-white max-w-2xl">
-    <h2 class="text-5xl font-light mb-6">Sichere dir deine Stromversorgung</h2>
-    <a href="#contact" class="bg-white text-black px-6 py-3 rounded-full">Kontakt</a>
+<section class="h-screen flex items-center justify-center text-center bg-[url('https://images.unsplash.com/photo-1581093588401-22f4dbe9d52c')] bg-cover bg-center">
+  <div class="bg-primary/70 p-12 rounded-2xl text-white max-w-2xl backdrop-blur">
+    <h2 class="text-5xl font-light mb-6 leading-tight">
+      Intelligente Energie.<br> Nachhaltig finanziert.
+    </h2>
+    <p class="mb-8 text-gray-200">
+      Lösungen für industrielle Energiesysteme, Speichertechnologien und Finanzierung.
+    </p>
+    <a href="#contact" class="bg-accent hover:bg-blue-700 transition px-8 py-3 rounded-full">
+      Beratung anfragen
+    </a>
   </div>
 </section>
 
-<!-- CONTACT NOW -->
+<!-- VALUE SECTION -->
 <section class="py-24 text-center">
-  <h3 class="text-3xl font-light mb-4">Ihr Parther für energie und finanzierung</h3>
-  <a href="#contact" class="bg-black text-white px-8 py-3 rounded-full">Kontakt</a>
+  <h3 class="text-3xl font-light mb-4">Ihr Partner für Energie & Finanzierung</h3>
+  <p class="text-gray-600 max-w-2xl mx-auto mb-8">
+    Wir verbinden technologische Innovation mit wirtschaftlicher Effizienz und schaffen nachhaltige Lösungen für Unternehmen.
+  </p>
+  <a href="#contact" class="bg-primary text-white px-8 py-3 rounded-full hover:bg-gray-800 transition">
+    Kontakt aufnehmen
+  </a>
 </section>
 
 <!-- ABOUT -->
 <section id="about" class="py-24 px-6 max-w-6xl mx-auto">
-  <h3 class="text-3xl font-light mb-10 text-center">Über uns und unsere Mission</h3>
+  <h3 class="text-3xl font-light mb-10 text-center">Über uns</h3>
 
-  <div class="bg-gray-50 p-8 rounded-xl mb-12 text-center text-gray-600">
-    Wir sind ein modernes Unternehmen im Bereich nachhaltiger Energie- und Finanzierungslösungen. 
-    Unser Ziel ist es, innovative Konzepte zu entwickeln und unseren Kunden eine sichere Zukunft zu ermöglichen.
+  <div class="bg-white shadow-sm p-10 rounded-2xl mb-12 text-center text-gray-600">
+    HBEE entwickelt maßgeschneiderte Lösungen im Bereich Energieinfrastruktur, industrielle Speicherlösungen und Finanzierung.
+    Unser Fokus liegt auf Effizienz, Nachhaltigkeit und langfristiger Wirtschaftlichkeit.
   </div>
 
   <div class="grid md:grid-cols-3 gap-8">
-    
+
     <!-- CARD -->
     <div class="flip-card h-64">
       <div class="flip-inner relative w-full h-full">
-        <div class="flip-front absolute w-full h-full bg-cover rounded-xl" 
+        <div class="flip-front absolute w-full h-full bg-cover rounded-2xl"
              style="background-image:url('https://images.unsplash.com/photo-1509395176047-4a66953fd231')"></div>
-        <div class="flip-back absolute w-full h-full bg-black text-white flex items-center justify-center rounded-xl p-4">
-          Nachhaltige Energie
+        <div class="flip-back absolute w-full h-full bg-primary text-white flex items-center justify-center rounded-2xl p-6 text-center">
+          Industrielle Energiesysteme
         </div>
       </div>
     </div>
 
     <div class="flip-card h-64">
       <div class="flip-inner relative w-full h-full">
-        <div class="flip-front absolute w-full h-full bg-cover rounded-xl" 
-             style="background-image:url('https://images.unsplash.com/photo-1497436072909-60f360e1d4b1')"></div>
-        <div class="flip-back absolute w-full h-full bg-black text-white flex items-center justify-center rounded-xl p-4">
-          Innovative Lösungen
+        <div class="flip-front absolute w-full h-full bg-cover rounded-2xl"
+             style="background-image:url('https://images.unsplash.com/photo-1581092334499-fd1b9d1a5e0c')"></div>
+        <div class="flip-back absolute w-full h-full bg-primary text-white flex items-center justify-center rounded-2xl p-6 text-center">
+          Batteriespeicher & Netzintegration
         </div>
       </div>
     </div>
 
     <div class="flip-card h-64">
       <div class="flip-inner relative w-full h-full">
-        <div class="flip-front absolute w-full h-full bg-cover rounded-xl" 
-             style="background-image:url('https://images.unsplash.com/photo-1466611653911-95081537e5b7')"></div>
-        <div class="flip-back absolute w-full h-full bg-black text-white flex items-center justify-center rounded-xl p-4">
-          Zukunftssicherheit
+        <div class="flip-front absolute w-full h-full bg-cover rounded-2xl"
+             style="background-image:url('https://images.unsplash.com/photo-1551836022-d5d88e9218df')"></div>
+        <div class="flip-back absolute w-full h-full bg-primary text-white flex items-center justify-center rounded-2xl p-6 text-center">
+          Strategische Beratung
         </div>
       </div>
     </div>
@@ -104,22 +122,26 @@ body { font-family: 'Inter', sans-serif; }
 </section>
 
 <!-- SERVICES -->
-<section id="services" class="py-24 bg-gray-50 px-6">
+<section id="services" class="py-24 bg-white px-6">
   <h3 class="text-3xl font-light mb-12 text-center">Dienstleistungen</h3>
 
   <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-10 text-center">
-    <div>
+
+    <div class="p-8 bg-soft rounded-2xl hover:shadow-md transition">
       <h4 class="font-semibold mb-3">Energieberatung</h4>
-      <p class="text-gray-600">Individuelle Lösungen für Ihre Stromversorgung</p>
+      <p class="text-gray-600">Analyse, Optimierung und Planung Ihrer Energieversorgung</p>
     </div>
-    <div>
+
+    <div class="p-8 bg-soft rounded-2xl hover:shadow-md transition">
       <h4 class="font-semibold mb-3">Finanzierung</h4>
-      <p class="text-gray-600">Flexible Modelle für nachhaltige Projekte</p>
+      <p class="text-gray-600">Individuelle Modelle für Investitionen in nachhaltige Infrastruktur</p>
     </div>
-    <div>
-      <h4 class="font-semibold mb-3">Projektumsetzung</h4>
-      <p class="text-gray-600">Von Planung bis Realisierung</p>
+
+    <div class="p-8 bg-soft rounded-2xl hover:shadow-md transition">
+      <h4 class="font-semibold mb-3">Projektentwicklung</h4>
+      <p class="text-gray-600">Ganzheitliche Umsetzung von Energieprojekten</p>
     </div>
+
   </div>
 </section>
 
@@ -128,10 +150,12 @@ body { font-family: 'Inter', sans-serif; }
   <h3 class="text-3xl font-light mb-8">Kontakt aufnehmen</h3>
 
   <form class="max-w-xl mx-auto grid gap-4">
-    <input type="text" placeholder="Name" class="p-3 border rounded">
-    <input type="email" placeholder="E-Mail" class="p-3 border rounded">
-    <textarea placeholder="Nachricht" class="p-3 border rounded h-32"></textarea>
-    <button class="bg-black text-white py-3 rounded-full">Absenden</button>
+    <input type="text" placeholder="Name" class="p-4 border rounded-xl focus:outline-none focus:ring-2 focus:ring-accent">
+    <input type="email" placeholder="E-Mail" class="p-4 border rounded-xl focus:outline-none focus:ring-2 focus:ring-accent">
+    <textarea placeholder="Nachricht" class="p-4 border rounded-xl h-32 focus:outline-none focus:ring-2 focus:ring-accent"></textarea>
+    <button class="bg-accent hover:bg-blue-700 text-white py-3 rounded-full transition">
+      Absenden
+    </button>
   </form>
 </section>
 
@@ -143,7 +167,8 @@ body { font-family: 'Inter', sans-serif; }
 
 <!-- FOOTER -->
 <footer class="py-6 text-center text-sm text-gray-500 border-t">
-  <a href="#">Impressum</a> | <a href="#">AGB</a>
+  <a href="#" class="hover:text-accent">Impressum</a> |
+  <a href="#" class="hover:text-accent">Datenschutz</a>
 </footer>
 
 </body>
