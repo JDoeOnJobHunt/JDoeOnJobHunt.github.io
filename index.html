@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HBEE – Energie & Finanzierung</title>
+<title>Impressum – HBEE</title>
 
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -25,177 +25,114 @@ tailwind.config = {
 
 <style>
 body { font-family: 'Inter', sans-serif; }
-
-/* smoother animations */
-* { transition: all 0.25s ease; }
-
-/* Flip Cards */
-.flip-card { perspective: 1000px; }
-.flip-inner {
-  transform-style: preserve-3d;
-}
-.flip-card:hover .flip-inner {
-  transform: rotateY(180deg);
-}
-.flip-front, .flip-back {
-  backface-visibility: hidden;
-}
-.flip-back {
-  transform: rotateY(180deg);
-}
 </style>
+
 </head>
 
 <body class="bg-white text-primary">
 
 <!-- NAV -->
-<header class="fixed w-full bg-white/80 backdrop-blur z-50 border-b border-gray-100">
-  <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-5">
+<header class="border-b border-gray-100">
+  <div class="max-w-5xl mx-auto flex justify-between items-center px-6 py-5">
     <h1 class="font-semibold tracking-wide">HBEE</h1>
-    <nav class="space-x-8 text-sm text-muted">
-      <a href="#about" class="hover:text-accent">Über uns</a>
-      <a href="#services" class="hover:text-accent">Leistungen</a>
-      <a href="#contact" class="bg-accent text-white px-4 py-2 rounded-full">Kontakt</a>
-    </nav>
+    <a href="/" class="text-sm text-muted hover:text-accent">Zurück zur Website</a>
   </div>
 </header>
 
-<!-- HERO -->
-<section class="h-screen flex items-center justify-center bg-[url('https://images.unsplash.com/photo-1581093588401-22f4dbe9d52c')] bg-cover bg-center relative">
-  
-  <div class="absolute inset-0 bg-gradient-to-b from-black/60 to-black/70"></div>
+<!-- CONTENT -->
+<section class="max-w-3xl mx-auto px-6 py-20">
 
-  <div class="relative text-center text-white max-w-3xl px-6">
-    <h2 class="text-5xl md:text-6xl font-light leading-tight mb-6">
-      Energie neu denken.<br> Wirtschaftlich handeln.
-    </h2>
-    <p class="text-gray-300 mb-8 text-lg">
-      Industrielle Energiesysteme, Batteriespeicher und Finanzierungslösungen aus einer Hand.
-    </p>
-    <a href="#contact" class="bg-accent hover:bg-blue-700 px-8 py-4 rounded-full text-lg">
-      Beratung anfragen
-    </a>
-  </div>
+  <h1 class="text-4xl font-light mb-10">Impressum</h1>
 
-</section>
+  <div class="space-y-10 text-muted leading-relaxed">
 
-<!-- TRUST BAR -->
-<section class="py-12 bg-soft text-center text-sm text-muted">
-  <p>Verlässlicher Partner für Industrie, Mittelstand und Energieprojekte</p>
-</section>
-
-<!-- ABOUT -->
-<section id="about" class="py-24 px-6 max-w-6xl mx-auto">
-  
-  <div class="grid md:grid-cols-2 gap-16 items-center mb-20">
+    <!-- COMPANY -->
     <div>
-      <h3 class="text-3xl font-light mb-6">Über HBEE</h3>
-      <p class="text-muted mb-4">
-        HBEE steht für ganzheitliche Lösungen im Bereich Energieinfrastruktur und Finanzierung. 
-        Wir begleiten Unternehmen von der Strategie bis zur Umsetzung.
+      <h2 class="text-xl text-primary font-medium mb-2">Unternehmen</h2>
+      <p>
+        HBEE GmbH<br>
+        Chaltenbodenstrasse 8<br>
+        8834 Schindellegi<br>
+        Schweiz
       </p>
-      <p class="text-muted">
-        Unser Fokus: Effizienz, Nachhaltigkeit und wirtschaftliche Skalierbarkeit.
+    </div>
+
+    <!-- CONTACT -->
+    <div>
+      <h2 class="text-xl text-primary font-medium mb-2">Kontakt</h2>
+      <p>
+        E-Mail: info@hbee.ch<br>
       </p>
     </div>
-    <div class="h-80 rounded-2xl bg-cover bg-center shadow"
-         style="background-image:url('https://images.unsplash.com/photo-1509395176047-4a66953fd231')"></div>
-  </div>
 
-  <!-- CARDS -->
-  <div class="grid md:grid-cols-3 gap-8">
-
-    <div class="flip-card h-64">
-      <div class="flip-inner relative w-full h-full">
-        <div class="flip-front absolute w-full h-full rounded-2xl bg-cover bg-center shadow"
-             style="background-image:url('https://images.unsplash.com/photo-1581092919534-8c47a5b1c7a0')"></div>
-        <div class="flip-back absolute w-full h-full bg-primary text-white flex items-center justify-center rounded-2xl p-6">
-          Industrielle Energiesysteme
-        </div>
-      </div>
+    <!-- REGISTER (CH CORRECT) -->
+    <div>
+      <h2 class="text-xl text-primary font-medium mb-2">Handelsregister & UID</h2>
+      <p>
+        Eingetragen im Handelsregister des Kantons Schwyz (Handelsregisteramt Schwyz)<br>
+        UID: CHE-263.271.221MWST
+      </p>
     </div>
 
-    <div class="flip-card h-64">
-      <div class="flip-inner relative w-full h-full">
-        <div class="flip-front absolute w-full h-full rounded-2xl bg-cover bg-center shadow"
-             style="background-image:url('https://images.unsplash.com/photo-1628595351029-c2bf17511435')"></div>
-        <div class="flip-back absolute w-full h-full bg-primary text-white flex items-center justify-center rounded-2xl p-6">
-          Batteriespeicher & Netzintegration
-        </div>
-      </div>
+    <!-- REPRESENTATION -->
+    <div>
+      <h2 class="text-xl text-primary font-medium mb-2">Vertretungsberechtigte Person</h2>
+      <p>
+        Tim O. Weber, Geschäftsführer
+      </p>
     </div>
 
-    <div class="flip-card h-64">
-      <div class="flip-inner relative w-full h-full">
-        <div class="flip-front absolute w-full h-full rounded-2xl bg-cover bg-center shadow"
-             style="background-image:url('https://images.unsplash.com/photo-1551836022-d5d88e9218df')"></div>
-        <div class="flip-back absolute w-full h-full bg-primary text-white flex items-center justify-center rounded-2xl p-6">
-          Strategische Beratung
-        </div>
-      </div>
+    <!-- LIABILITY -->
+    <div>
+      <h2 class="text-xl text-primary font-medium mb-2">Haftung für Inhalte</h2>
+      <p>
+        Die Inhalte dieser Website wurden mit größter Sorgfalt erstellt.
+        Für Richtigkeit, Vollständigkeit und Aktualität übernehmen wir jedoch keine Gewähr.
+      </p>
     </div>
 
-  </div>
-
-</section>
-
-<!-- SERVICES -->
-<section id="services" class="py-24 bg-soft px-6">
-  <div class="max-w-6xl mx-auto text-center mb-16">
-    <h3 class="text-3xl font-light mb-4">Leistungen</h3>
-    <p class="text-muted">Ganzheitliche Lösungen für moderne Energieprojekte</p>
-  </div>
-
-  <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-10">
-
-    <div class="bg-white p-10 rounded-2xl shadow hover:shadow-lg">
-      <h4 class="font-semibold mb-4">Energieberatung</h4>
-      <p class="text-muted">Analyse, Planung und Optimierung Ihrer Energieinfrastruktur</p>
+    <div>
+      <h2 class="text-xl text-primary font-medium mb-2">Haftung für Links</h2>
+      <p>
+        Diese Website enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben.
+        Deshalb übernehmen wir für diese Inhalte keine Haftung.
+      </p>
     </div>
 
-    <div class="bg-white p-10 rounded-2xl shadow hover:shadow-lg">
-      <h4 class="font-semibold mb-4">Finanzierung</h4>
-      <p class="text-muted">Strukturierte Finanzierungslösungen für nachhaltige Projekte</p>
+    <div>
+      <h2 class="text-xl text-primary font-medium mb-2">Urheberrecht</h2>
+      <p>
+        Die Inhalte dieser Website unterliegen dem Urheberrecht.
+        Jede Vervielfältigung bedarf der schriftlichen Zustimmung.
+      </p>
     </div>
 
-    <div class="bg-white p-10 rounded-2xl shadow hover:shadow-lg">
-      <h4 class="font-semibold mb-4">Projektumsetzung</h4>
-      <p class="text-muted">Von der Planung bis zur Realisierung – alles aus einer Hand</p>
+    <!-- EU DISPUTE (IMPORTANT ADDITION) -->
+    <div>
+      <h2 class="text-xl text-primary font-medium mb-2">Streitschlichtung (EU-Hinweis)</h2>
+      <p>
+        Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:
+        https://ec.europa.eu/consumers/odr/
+      </p>
+      <p class="mt-3">
+        Wir sind nicht verpflichtet und nicht bereit, an Streitbeilegungsverfahren vor einer
+        Verbraucherschlichtungsstelle teilzunehmen.
+      </p>
     </div>
 
   </div>
-</section>
 
-<!-- CTA -->
-<section class="py-24 bg-primary text-white text-center">
-  <h3 class="text-3xl font-light mb-6">Bereit für die nächste Stufe Ihrer Energieversorgung?</h3>
-  <a href="#contact" class="bg-accent px-8 py-4 rounded-full text-lg">
-    Jetzt Gespräch starten
-  </a>
-</section>
-
-<!-- CONTACT -->
-<section id="contact" class="py-24 px-6 text-center">
-  <h3 class="text-3xl font-light mb-8">Kontakt</h3>
-
-  <form class="max-w-xl mx-auto grid gap-5">
-    <input type="text" placeholder="Name" class="p-4 border rounded-xl focus:ring-2 focus:ring-accent outline-none">
-    <input type="email" placeholder="E-Mail" class="p-4 border rounded-xl focus:ring-2 focus:ring-accent outline-none">
-    <textarea placeholder="Nachricht" class="p-4 border rounded-xl h-32 focus:ring-2 focus:ring-accent outline-none"></textarea>
-    <button class="bg-accent text-white py-4 rounded-full text-lg">
-      Anfrage senden
-    </button>
-  </form>
 </section>
 
 <!-- FOOTER -->
-<footer class="py-12 text-center text-sm text-muted border-t">
-  <p class="mb-4">HBEE GmbH 
+<div>
+  <h2 class="text-xl text-primary font-medium mb-2">Angaben gemäß § 5 TMG</h2>
+  <p>HBEE GmbH
     <br>Chaltenbodenstrasse 8 
     <br>8834 Schindellegi 
     <br>CH - Schweiz</p>
-  <a href="#">AGB</a> · <a href="/impressum">Impressum</a> · <a href="#">Datenschutz</a>
-</footer>
+  </p>
+</div>
 
 </body>
 </html>
