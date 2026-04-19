@@ -65,10 +65,21 @@ function getLanguage() {
     'localhost': 'de'
   };
 
-  const subdomain = parts[0];
-  const detected = langMap[subdomain] || 'de'; // Default to German
+  // Check if there's actually a subdomain (parts.length > 2 for en.domain.de)
+  // If parts.length === 2, it's a root domain like domain.de
+  let detected = 'de'; // Default to German
 
-  console.log(`📍 Hostname: ${hostname}, Subdomain: ${subdomain}, Detected language: ${detected}`);
+  if (parts.length > 2) {
+    // Actual subdomain exists
+    const subdomain = parts[0];
+    detected = langMap[subdomain] || 'de';
+  } else if (parts.length === 1 || hostname === 'localhost') {
+    // Single-level domain or localhost
+    detected = langMap[hostname] || 'de';
+  }
+  // For 2-level domains (root), just use default German
+
+  console.log(`📍 Hostname: ${hostname}, Parts: ${parts.length}, Detected language: ${detected}`);
   return detected;
 }
 
