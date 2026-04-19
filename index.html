@@ -27,27 +27,10 @@ tailwind.config = {
 <script src="/i18n.js"></script>
 
 <style>
-body {
-  font-family: 'Inter', sans-serif;
-  background: linear-gradient(135deg, #0F172A 0%, #0B1220 100%);
-}
+body { font-family: 'Inter', sans-serif; }
 
-/* Smooth animations */
-* { transition: all 0.3s ease; }
-
-/* Typography improvements */
-h1, h2, h3, h4 { letter-spacing: -0.5px; }
-h2 { line-height: 1.2; }
-h3 { line-height: 1.3; }
-p { line-height: 1.7; }
-
-/* Gradient accent text */
-.gradient-text {
-  background: linear-gradient(135deg, #06B6D4, #3B82F6, #8B5CF6);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
+/* smoother animations */
+* { transition: all 0.25s ease; }
 
 /* Flip Cards */
 .flip-card {
@@ -56,7 +39,7 @@ p { line-height: 1.7; }
 }
 .flip-inner {
   transform-style: preserve-3d;
-  transition: transform 0.6s ease;
+  transition: transform 0.6s;
 }
 .flip-card.flipped .flip-inner {
   transform: rotateY(180deg);
@@ -66,93 +49,6 @@ p { line-height: 1.7; }
 }
 .flip-back {
   transform: rotateY(180deg);
-}
-
-/* Cards - organic shadows and subtle lift */
-.flip-card {
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-  border-radius: 20px;
-  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-.flip-card:hover {
-  box-shadow: 0 20px 40px rgba(6, 182, 212, 0.2);
-  transform: translateY(-8px);
-}
-
-/* Buttons - gradient and smooth */
-button {
-  background: linear-gradient(135deg, #06B6D4, #3B82F6, #8B5CF6);
-  border: none;
-  font-weight: 600;
-  letter-spacing: 0.3px;
-  transition: all 0.4s ease;
-  position: relative;
-  overflow: hidden;
-}
-button:hover {
-  box-shadow: 0 15px 40px rgba(6, 182, 212, 0.4);
-  transform: translateY(-2px);
-}
-button::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-  transition: left 0.5s;
-}
-button:hover::before {
-  left: 100%;
-}
-
-/* Service cards - depth and hover lift */
-.service-card {
-  background: rgba(255, 255, 255, 0.02);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 16px;
-  transition: all 0.4s ease;
-}
-.service-card:hover {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(6, 182, 212, 0.3);
-  box-shadow: 0 20px 40px rgba(6, 182, 212, 0.15);
-  transform: translateY(-6px);
-}
-
-/* Form inputs - better focus states */
-input, textarea {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1.5px solid rgba(255, 255, 255, 0.1);
-  transition: all 0.3s ease;
-}
-input:focus, textarea:focus {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: #06B6D4;
-  box-shadow: 0 0 20px rgba(6, 182, 212, 0.2);
-}
-
-/* Section animations */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.section-fade {
-  animation: fadeInUp 0.8s ease-out;
-}
-
-/* Hero overlay - softer */
-.hero-overlay {
-  background: linear-gradient(135deg, rgba(0,0,0,0.4) 0%, rgba(11, 18, 32, 0.5) 100%);
 }
 
 /* Desktop: hover to flip */
@@ -170,10 +66,6 @@ input:focus, textarea:focus {
   .flip-card:hover .flip-inner {
     transform: none;
   }
-  button {
-    font-size: 16px;
-    padding: 1rem;
-  }
 }
 </style>
 </head>
@@ -181,81 +73,81 @@ input:focus, textarea:focus {
 <body class="bg-white text-primary">
 
 <!-- NAV -->
-<header class="fixed w-full bg-white/5 backdrop-blur-xl z-50 border-b border-white/10">
-  <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
+<header class="fixed w-full bg-white/80 backdrop-blur z-50 border-b border-gray-100">
+  <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-3">
     <a href="#" class="flex items-center">
-      <img src="/bilder/Logo1.png" alt="HBEE Logo" class="h-11 hover:opacity-80 transition">
+      <img src="/bilder/Logo1.png" alt="HBEE Logo" class="h-10">
     </a>
-    <nav class="space-x-8 text-sm text-gray-300">
-      <a href="#about" class="hover:text-cyan-400 transition duration-300" data-i18n="nav.about">Über uns</a>
-      <a href="#services" class="hover:text-cyan-400 transition duration-300" data-i18n="nav.services">Leistungen</a>
-      <a href="#contact" class="bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-600 text-white px-6 py-2 rounded-full hover:shadow-lg hover:shadow-cyan-500/50 transition" data-i18n="nav.contact">Kontakt</a>
+    <nav class="space-x-8 text-sm text-muted">
+      <a href="#about" class="hover:text-accent" data-i18n="nav.about">Über uns</a>
+      <a href="#services" class="hover:text-accent" data-i18n="nav.services">Leistungen</a>
+      <a href="#contact" class="bg-accent text-white px-4 py-2 rounded-full" data-i18n="nav.contact">Kontakt</a>
     </nav>
   </div>
 </header>
 
 <!-- HERO -->
-<section class="h-screen flex items-center justify-center bg-[url('./bilder/Bild3.png')] bg-cover bg-center relative overflow-hidden">
+<section class="h-screen flex items-center justify-center bg-[url('./bilder/Bild3.png')] bg-cover bg-center relative">
+  
+  <div class="absolute inset-0 bg-gradient-to-b from-black/60 to-black/70"></div>
 
-  <div class="absolute inset-0 hero-overlay"></div>
-
-  <div class="relative text-center text-white max-w-4xl px-6 py-24">
-    <h2 class="text-6xl md:text-7xl font-light leading-tight mb-8" data-i18n="hero.title" data-i18n-html>Energie neu denken.<br><span class="gradient-text">Wirtschaftlich handeln.</span></h2>
-    <p class="text-gray-200 mb-10 text-lg md:text-xl max-w-2xl mx-auto" data-i18n="hero.subtitle">Finanzierungslösungen, industrielle Energiesysteme und Großbatteriespeicher aus einer Hand.</p>
-    <a href="#contact" class="inline-block bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-600 text-white px-10 py-4 rounded-full text-lg font-semibold hover:shadow-2xl hover:shadow-cyan-500/50 transition" data-i18n="hero.cta">Beratung anfragen</a>
+  <div class="relative text-center text-white max-w-3xl px-6">
+    <h2 class="text-5xl md:text-6xl font-light leading-tight mb-6" data-i18n="hero.title" data-i18n-html>Energie neu denken.<br> Wirtschaftlich handeln.</h2>
+    <p class="text-gray-300 mb-8 text-lg" data-i18n="hero.subtitle">Finanzierungslösungen, industrielle Energiesysteme und Großbatteriespeicher aus einer Hand.</p>
+    <a href="#contact" class="bg-accent hover:bg-blue-700 px-8 py-4 rounded-full text-lg" data-i18n="hero.cta">Beratung anfragen</a>
   </div>
 
 </section>
 
 <!-- TRUST BAR -->
-<section class="py-16 bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-center text-sm text-gray-300 border-b border-white/10">
-  <p data-i18n="trust.text" data-i18n-html class="max-w-3xl mx-auto px-6 leading-relaxed">Wir skalieren die Energiewende: Von der 400kV-Hochspannungsanbindung bis zum GWh-Batteriespeicher. <br> Wir vereinen exklusiven Marktzugang mit technischem Programm-Management für institutionelle Investoren.</p>
+<section class="py-12 bg-soft text-center text-sm text-muted">
+  <p data-i18n="trust.text" data-i18n-html>Wir skalieren die Energiewende: Von der 400kV-Hochspannungsanbindung bis zum GWh-Batteriespeicher. <br> Wir vereinen exklusiven Marktzugang mit technischem Programm-Management für institutionelle Investoren.</p>
 </section>
 
 <!-- ABOUT -->
-<section id="about" class="py-32 px-6 max-w-6xl mx-auto">
-
-  <div class="grid md:grid-cols-2 gap-20 items-center mb-24">
+<section id="about" class="py-24 px-6 max-w-6xl mx-auto">
+  
+  <div class="grid md:grid-cols-2 gap-16 items-center mb-20">
     <div>
-      <h3 class="text-4xl font-light mb-8 text-white" data-i18n="about.title">Über HBEE</h3>
-      <p class="text-gray-300 mb-6 text-lg leading-relaxed" data-i18n="about.intro">Mit über 25 Jahren Erfahrung in der Energiewirtschaft sind wir Experten darin, branchenübergreifend Strom für vielfältigste Anwendungen zu attraktiven Konditionen bereitzustellen. Mit unserer fundierten Management- und Finanzkompetenz sichern wir Ihren langfristigen Erfolg Ihrer Investironen.</p>
-      <p class="text-gray-300 text-lg leading-relaxed">
-        <span data-i18n="about.focus" class="text-cyan-400 font-semibold block mb-6">Unser Fokus: Effizienz, Nachhaltigkeit und wirtschaftliche Skalierbarkeit.</span>
-        <ul class="text-gray-300 space-y-4">
-          <li data-i18n="about.point1" class="flex gap-3"><span class="text-cyan-400 font-bold">•</span><span>Industrielle Energieversorgungslösungen: Maximale Absicherung Ihrer Energiebedarfe und Produktionsprozesse.</span></li>
-          <li data-i18n="about.point2" class="flex gap-3"><span class="text-cyan-400 font-bold">•</span><span>Batteriegroßspeicher und Netzintegration: Stromabsicherung, Netzstabilisierung und Minimierung von Strompreisrisiken.</span></li>
-          <li data-i18n="about.point3" class="flex gap-3"><span class="text-cyan-400 font-bold">•</span><span>Energetische Einbindung von Rechenzentren: Kombination aus Batteriespeicher, Netzinfrastruktur und Bereitstellung der notwendigen Infrastruktur für Hyperscaler.</span></li>
+      <h3 class="text-3xl font-light mb-6" data-i18n="about.title">Über HBEE</h3>
+      <p class="text-muted mb-4" data-i18n="about.intro">Mit über 25 Jahren Erfahrung in der Energiewirtschaft sind wir Experten darin, branchenübergreifend Strom für vielfältigste Anwendungen zu attraktiven Konditionen bereitzustellen. Mit unserer fundierten Management- und Finanzkompetenz sichern wir Ihren langfristigen Erfolg Ihrer Investironen.</p>
+      <p class="text-muted">
+        <span data-i18n="about.focus">Unser Fokus: Effizienz, Nachhaltigkeit und wirtschaftliche Skalierbarkeit.</span>
+        <ul class="text-muted space-y-4">
+          <li data-i18n="about.point1">Industrielle Energieversorgungslösungen: Maximale Absicherung Ihrer Energiebedarfe und Produktionsprozesse.</li>
+          <li data-i18n="about.point2">Batteriegroßspeicher und Netzintegration: Stromabsicherung, Netzstabilisierung und Minimierung von Strompreisrisiken.</li>
+          <li data-i18n="about.point3">Energetische Einbindung von Rechenzentren: Kombination aus Batteriespeicher, Netzinfrastruktur und Bereitstellung der notwendigen Infrastruktur für Hyperscaler.</li>
         </ul>
       </p>
     </div>
-    <div class="h-96 rounded-3xl bg-cover bg-center shadow-2xl"
+    <div class="h-80 rounded-2xl bg-cover bg-center shadow"
          style="background-image:url('./bilder/Bild1.png')"></div>
   </div>
 
   <!-- CARDS -->
   <div class="grid md:grid-cols-3 gap-8">
 
-    <div class="flip-card h-72">
+    <div class="flip-card h-64">
       <div class="flip-inner relative w-full h-full">
-        <div class="flip-front absolute w-full h-full rounded-3xl bg-cover bg-center shadow-lg"
+        <div class="flip-front absolute w-full h-full rounded-2xl bg-cover bg-center shadow"
              style="background-image:url('./bilder/Bild2.png')"></div>
-        <div class="flip-back absolute w-full h-full bg-gradient-to-br from-cyan-600 to-blue-700 text-white flex items-center justify-center rounded-3xl p-6 text-center" data-i18n="card1.front">Industrielle Energiesysteme</div>
+        <div class="flip-back absolute w-full h-full bg-primary text-white flex items-center justify-center rounded-2xl p-6" data-i18n="card1.front">Industrielle Energiesysteme</div>
       </div>
     </div>
 
-    <div class="flip-card h-72">
+    <div class="flip-card h-64">
       <div class="flip-inner relative w-full h-full">
-        <div class="flip-front absolute w-full h-full rounded-3xl bg-cover bg-center shadow-lg"
+        <div class="flip-front absolute w-full h-full rounded-2xl bg-cover bg-center shadow"
              style="background-image:url('https://images.unsplash.com/photo-1628595351029-c2bf17511435')"></div>
-        <div class="flip-back absolute w-full h-full bg-gradient-to-br from-blue-600 to-purple-700 text-white flex items-center justify-center rounded-3xl p-6 text-center" data-i18n="card2.front">Batteriespeicher & Netzintegration</div>
+        <div class="flip-back absolute w-full h-full bg-primary text-white flex items-center justify-center rounded-2xl p-6" data-i18n="card2.front">Batteriespeicher & Netzintegration</div>
       </div>
     </div>
 
-    <div class="flip-card h-72">
+    <div class="flip-card h-64">
       <div class="flip-inner relative w-full h-full">
-        <div class="flip-front absolute w-full h-full rounded-3xl bg-cover bg-center shadow-lg"
+        <div class="flip-front absolute w-full h-full rounded-2xl bg-cover bg-center shadow"
              style="background-image:url('https://images.unsplash.com/photo-1551836022-d5d88e9218df')"></div>
-        <div class="flip-back absolute w-full h-full bg-gradient-to-br from-purple-600 to-pink-700 text-white flex items-center justify-center rounded-3xl p-6 text-center" data-i18n="card3.front">Kompetenz: Trusted Advisor für Finanzinvestoren, Begleiter für alle Anliegen der Investoren gegenüber dem Projekt</div>
+        <div class="flip-back absolute w-full h-full bg-primary text-white flex items-center justify-center rounded-2xl p-6" data-i18n="card3.front">Kompetenz: Trusted Advisor für Finanzinvestoren, Begleiter für alle Anliegen der Investoren gegenüber dem Projekt</div>
       </div>
     </div>
 
@@ -264,54 +156,54 @@ input:focus, textarea:focus {
 </section>
 
 <!-- SERVICES -->
-<section id="services" class="py-32 bg-gradient-to-b from-slate-900 to-slate-800 px-6">
-  <div class="max-w-6xl mx-auto text-center mb-20">
-    <h3 class="text-4xl font-light mb-6 text-white" data-i18n="services.title">Leistungen</h3>
-    <p class="text-gray-300 text-lg mb-4" data-i18n="services.intro">Wir verfügen über die erforderliche Schnittstellenkompetenz zur Sicherung Ihrer Investition und Sicherung der Projekte.</p>
-    <p class="text-gray-300 text-lg leading-relaxed" data-i18n="services.description" data-i18n-html>Wir sehen uns als Interessenwahrer unserer Finanzpartner. Unser Ziel ist es, die Komplexität der Hochspannungstechnik und der Energiemärkte so zu steuern, dass für den Investor ein transparentes, risikooptimiertes und hochgradig skalierbares Asset entsteht.
+<section id="services" class="py-24 bg-soft px-6">
+  <div class="max-w-6xl mx-auto text-center mb-16">
+    <h3 class="text-3xl font-light mb-4" data-i18n="services.title">Leistungen</h3>
+    <p class="text-muted" data-i18n="services.intro">Wir verfügen über die erforderliche Schnittstellenkompetenz zur Sicherung Ihrer Investition und Sicherung der Projekte.</p>
+    <p class="text-muted" data-i18n="services.description" data-i18n-html>Wir sehen uns als Interessenwahrer unserer Finanzpartner. Unser Ziel ist es, die Komplexität der Hochspannungstechnik und der Energiemärkte so zu steuern, dass für den Investor ein transparentes, risikooptimiertes und hochgradig skalierbares Asset entsteht.
     <br> Wir schaffen und steuern systemrelevante Assets mit nachhaltigem Mehrwert für Ihre Investments.</p>
+  </p>
   </div>
 
-  <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
+  <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-10">
 
-    <div class="service-card p-10">
-      <h4 class="font-semibold mb-4 text-white text-lg" data-i18n="service1.title">Financial Engineering & Asset-Strategie</h4>
-      <p class="text-gray-300 leading-relaxed" data-i18n="service1.desc">Wir vermitteln nicht nur Kapital, wir strukturieren Business Cases. Wir übersetzen technische Parameter in verlässliche Cashflow-Modelle für Finanzpartner. Dabei integrieren wir moderne Vermarktungskonzepte wie Multi-Use-Stacking, Arbitrage-Handel und Systemdienstleistungen sowie Nutzen der Energie für die Industrie.</p>
+    <div class="bg-white p-10 rounded-2xl shadow hover:shadow-lg">
+      <h4 class="font-semibold mb-4" data-i18n="service1.title">Financial Engineering & Asset-Strategie</h4>
+      <p class="text-muted" data-i18n="service1.desc">Wir vermitteln nicht nur Kapital, wir strukturieren Business Cases. Wir übersetzen technische Parameter in verlässliche Cashflow-Modelle für Finanzpartner. Dabei integrieren wir moderne Vermarktungskonzepte wie Multi-Use-Stacking, Arbitrage-Handel und Systemdienstleistungen sowie Nutzen der Energie für die Industrie.</p>
     </div>
 
-    <div class="service-card p-10">
-      <h4 class="font-semibold mb-4 text-white text-lg" data-i18n="service2.title">Technical Program Management</h4>
-      <p class="text-gray-300 leading-relaxed"><span data-i18n="service2.desc">Ein 1.600 MWh-Projekt ist eine logistische und technische Meisterleistung. Wir steuern das gesamte Programm:</span>
-        <ul class="text-gray-300 space-y-3 mt-4">
-          <li data-i18n="service2.point1" class="flex gap-2"><span class="text-cyan-400">✓</span><span>Anbindung an das 400-kV-Netz inklusive Planung der Trafostationen.</span></li>
-          <li data-i18n="service2.point2" class="flex gap-2"><span class="text-cyan-400">✓</span><span>Sicherstellung der Konnektivität via Darkfiber für Echtzeit-Monitoring.</span></li>
-          <li data-i18n="service2.point3" class="flex gap-2"><span class="text-cyan-400">✓</span><span>Begleitung der Technologieauswahl (LFP, Na-Ion) und Qualitätssicherung bis zum Commissioning.</span></li>
+    <div class="bg-white p-10 rounded-2xl shadow hover:shadow-lg">
+      <h4 class="font-semibold mb-4" data-i18n="service2.title">Technical Program Management</h4>
+      <p class="text-muted"><span data-i18n="service2.desc">Ein 1.600 MWh-Projekt ist eine logistische und technische Meisterleistung. Wir steuern das gesamte Programm:</span>
+        <ul class="text-muted space-y-4">
+          <li data-i18n="service2.point1">Anbindung an das 400-kV-Netz inklusive Planung der Trafostationen.</li>
+          <li data-i18n="service2.point2">Sicherstellung der Konnektivität via Darkfiber für Echtzeit-Monitoring.</li>
+          <li data-i18n="service2.point3">Begleitung der Technologieauswahl (LFP, Na-Ion) und Qualitätssicherung bis zum Commissioning.</li>
         </ul>
       </p>
     </div>
 
-    <div class="service-card p-10">
-      <h4 class="font-semibold mb-4 text-white text-lg" data-i18n="service3.title">Exklusiver Marktzugang & Networking</h4>
-      <p class="text-gray-300 leading-relaxed" data-i18n="service3.desc">Durch den direkten Zugang zu Entscheidern der Energiewirtschaft und ÜNBs identifizieren wir Standorte und Projekte, bevor sie den öffentlichen Markt erreichen. Wir verstehen die Sprache der Netzbetreiber und die regulatorischen Rahmenbedingungen, um komplexe Genehmigungsprozesse (BImSchG, NAP) zum Erfolg zu führen.</p>
+    <div class="bg-white p-10 rounded-2xl shadow hover:shadow-lg">
+      <h4 class="font-semibold mb-4" data-i18n="service3.title">Exklusiver Marktzugang & Networking</h4>
+      <p class="text-muted" data-i18n="service3.desc">Durch den direkten Zugang zu Entscheidern der Energiewirtschaft und ÜNBs identifizieren wir Standorte und Projekte, bevor sie den öffentlichen Markt erreichen. Wir verstehen die Sprache der Netzbetreiber und die regulatorischen Rahmenbedingungen, um komplexe Genehmigungsprozesse (BImSchG, NAP) zum Erfolg zu führen.</p>
     </div>
-  </div>
 </section>
 
 <!-- CTA -->
-<section class="py-32 bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900 text-white text-center">
-  <h3 class="text-4xl font-light mb-8 max-w-2xl mx-auto leading-tight px-6" data-i18n="cta.title">Bereit für die nächste Stufe Ihrer Investitionen in der Energieversorgung?</h3>
-  <a href="#contact" class="inline-block bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-600 text-white px-10 py-4 rounded-full text-lg font-semibold hover:shadow-2xl hover:shadow-cyan-500/50 transition" data-i18n="cta.button">Jetzt Gespräch starten</a>
+<section class="py-24 bg-primary text-white text-center">
+  <h3 class="text-3xl font-light mb-6 max-w-xl mx-auto" data-i18n="cta.title">Bereit für die nächste Stufe Ihrer Investionen in der Energieversorgung?</h3>
+  <a href="#contact" class="bg-accent px-8 py-4 rounded-full text-lg inline-block" data-i18n="cta.button">Jetzt Gespräch starten</a>
 </section>
 
 <!-- CONTACT -->
-<section id="contact" class="py-32 px-6 text-center">
-  <h3 class="text-4xl font-light mb-12 text-white" data-i18n="contact.title">Kontakt</h3>
+<section id="contact" class="py-24 px-6 text-center">
+  <h3 class="text-3xl font-light mb-8" data-i18n="contact.title">Kontakt</h3>
 
-  <form class="max-w-xl mx-auto grid gap-6" action="https://formspree.io/f/xyznyedk" method="POST">
-    <input type="text" name="name" data-i18n-placeholder="contact.name" placeholder="Name" class="p-5 border border-gray-300 rounded-xl focus:ring-2 focus:ring-cyan-500 focus:border-cyan-400 outline-none text-primary text-lg" required>
-    <input type="email" name="email" data-i18n-placeholder="contact.email" placeholder="E-Mail" class="p-5 border border-gray-300 rounded-xl focus:ring-2 focus:ring-cyan-500 focus:border-cyan-400 outline-none text-primary text-lg" required>
-    <textarea name="message" data-i18n-placeholder="contact.message" placeholder="Nachricht" class="p-5 border border-gray-300 rounded-xl h-40 focus:ring-2 focus:ring-cyan-500 focus:border-cyan-400 outline-none text-primary text-lg" required></textarea>
-    <button type="submit" class="bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-600 text-white py-5 rounded-full text-lg font-semibold hover:shadow-2xl hover:shadow-cyan-500/50 transition" data-i18n="contact.submit">Anfrage senden</button>
+  <form class="max-w-xl mx-auto grid gap-5" action="https://formspree.io/f/xyznyedk" method="POST">
+    <input type="text" name="name" data-i18n-placeholder="contact.name" placeholder="Name" class="p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-accent focus:border-accent outline-none text-primary" required>
+    <input type="email" name="email" data-i18n-placeholder="contact.email" placeholder="E-Mail" class="p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-accent focus:border-accent outline-none text-primary" required>
+    <textarea name="message" data-i18n-placeholder="contact.message" placeholder="Nachricht" class="p-4 border border-gray-300 rounded-xl h-32 focus:ring-2 focus:ring-accent focus:border-accent outline-none text-primary" required></textarea>
+    <button type="submit" class="bg-accent hover:bg-blue-700 text-white py-4 rounded-full text-lg font-medium transition-colors" data-i18n="contact.submit">Anfrage senden</button>
   </form>
 </section>
 
