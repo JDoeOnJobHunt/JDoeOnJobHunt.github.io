@@ -27,6 +27,7 @@ async function loadTranslations(lang) {
     const response = await fetch(`/locale/${lang}.json`);
     if (!response.ok) throw new Error(`Failed to load ${lang}.json`);
     i18nData = await response.json();
+    console.log('Translations loaded:', lang, Object.keys(i18nData).length, 'keys');
   } catch (error) {
     console.error('Translation loading error:', error);
     // Fallback to German if loading fails
@@ -45,11 +46,16 @@ function t(key, fallback = key) {
     value = value?.[k];
   }
 
-  return value || fallback;
+  const result = value || fallback;
+  if (!value && fallback === key) {
+    console.warn(`Translation missing for key: ${key}`);
+  }
+  return result;
 }
 
 // Replace all elements with data-i18n attribute
 function applyTranslations() {
+  let count = 0;
   document.querySelectorAll('[data-i18n]').forEach(element => {
     const key = element.getAttribute('data-i18n');
     const translation = t(key);
@@ -60,6 +66,7 @@ function applyTranslations() {
     } else {
       element.textContent = translation;
     }
+    count++;
   });
 
   // Replace placeholder attributes
@@ -71,17 +78,25 @@ function applyTranslations() {
 
   // Update lang attribute
   document.documentElement.lang = getLanguage();
+  console.log(`Applied ${count} translations`);
 }
 
 // Initialize i18n on page load
 async function initI18n() {
   const lang = getLanguage();
+  console.log('Initializing i18n for language:', lang);
+
   await loadTranslations(lang);
   await loadSharedFooter();
+
+  // Small delay to ensure DOM is ready
+  await new Promise(resolve => setTimeout(resolve, 50));
+
   applyTranslations();
 
   // Store current language for reference
   window.currentLanguage = lang;
+  console.log('i18n initialization complete');
 }
 
 // Load shared footer from footer.html
