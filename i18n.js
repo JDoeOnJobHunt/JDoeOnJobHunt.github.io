@@ -77,10 +77,31 @@ function applyTranslations() {
 async function initI18n() {
   const lang = getLanguage();
   await loadTranslations(lang);
+  await loadSharedFooter();
   applyTranslations();
 
   // Store current language for reference
   window.currentLanguage = lang;
+}
+
+// Load shared footer from footer.html
+async function loadSharedFooter() {
+  try {
+    const response = await fetch('/footer.html');
+    if (!response.ok) throw new Error('Failed to load footer');
+    const footerHTML = await response.text();
+
+    // Remove existing footer if present
+    const existingFooter = document.querySelector('footer');
+    if (existingFooter) {
+      existingFooter.remove();
+    }
+
+    // Insert new footer before closing body tag
+    document.body.insertAdjacentHTML('beforeend', footerHTML);
+  } catch (error) {
+    console.error('Footer loading error:', error);
+  }
 }
 
 // Run on DOM ready
