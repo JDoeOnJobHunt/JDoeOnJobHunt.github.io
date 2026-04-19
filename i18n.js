@@ -186,7 +186,7 @@ function applyTranslations() {
   document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
     const key = element.getAttribute('data-i18n-placeholder');
     const translation = t(key);
-    if (translation) {
+    if (translation && translation !== key) {
       element.setAttribute('placeholder', translation);
     }
   });
