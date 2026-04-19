@@ -23,6 +23,8 @@ tailwind.config = {
 }
 </script>
 
+<script src="/i18n.js"></script>
+
 <style>
 body { font-family: 'Inter', sans-serif; }
 
@@ -53,9 +55,9 @@ body { font-family: 'Inter', sans-serif; }
   <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-5">
     <h1 class="font-semibold tracking-wide">HBEE</h1>
     <nav class="space-x-8 text-sm text-muted">
-      <a href="#about" class="hover:text-accent">Über uns</a>
-      <a href="#services" class="hover:text-accent">Leistungen</a>
-      <a href="#contact" class="bg-accent text-white px-4 py-2 rounded-full">Kontakt</a>
+      <a href="#about" class="hover:text-accent" data-i18n="nav.about">Über uns</a>
+      <a href="#services" class="hover:text-accent" data-i18n="nav.services">Leistungen</a>
+      <a href="#contact" class="bg-accent text-white px-4 py-2 rounded-full" data-i18n="nav.contact">Kontakt</a>
     </nav>
   </div>
 </header>
@@ -66,22 +68,16 @@ body { font-family: 'Inter', sans-serif; }
   <div class="absolute inset-0 bg-gradient-to-b from-black/60 to-black/70"></div>
 
   <div class="relative text-center text-white max-w-3xl px-6">
-    <h2 class="text-5xl md:text-6xl font-light leading-tight mb-6">
-      Energie neu denken.<br> Wirtschaftlich handeln.
-    </h2>
-    <p class="text-gray-300 mb-8 text-lg">
-      Finanzierungslösungen, industrielle Energiesysteme und Großbatteriespeicher aus einer Hand.
-    </p>
-    <a href="#contact" class="bg-accent hover:bg-blue-700 px-8 py-4 rounded-full text-lg">
-      Beratung anfragen
-    </a>
+    <h2 class="text-5xl md:text-6xl font-light leading-tight mb-6" data-i18n="hero.title" data-i18n-html></h2>
+    <p class="text-gray-300 mb-8 text-lg" data-i18n="hero.subtitle"></p>
+    <a href="#contact" class="bg-accent hover:bg-blue-700 px-8 py-4 rounded-full text-lg" data-i18n="hero.cta"></a>
   </div>
 
 </section>
 
 <!-- TRUST BAR -->
 <section class="py-12 bg-soft text-center text-sm text-muted">
-  <p>Wir skalieren die Energiewende: Von der 400kV-Hochspannungsanbindung bis zum GWh-Batteriespeicher. <br> Wir vereinen exklusiven Marktzugang mit technischem Programm-Management für institutionelle Investoren.</p>
+  <p data-i18n="trust.text" data-i18n-html></p>
 </section>
 
 <!-- ABOUT -->
@@ -89,17 +85,14 @@ body { font-family: 'Inter', sans-serif; }
   
   <div class="grid md:grid-cols-2 gap-16 items-center mb-20">
     <div>
-      <h3 class="text-3xl font-light mb-6">Über HBEE</h3>
-      <p class="text-muted mb-4">
-        Mit über 25 Jahren Erfahrung in der Energiewirtschaft sind wir Experten darin, branchenübergreifend Strom für vielfältigste Anwendungen zu attraktiven Konditionen bereitzustellen.
-        Mit unserer fundierten Management- und Finanzkompetenz sichern wir Ihren langfristigen Erfolg Ihrer Investironen.
-      </p>
+      <h3 class="text-3xl font-light mb-6" data-i18n="about.title"></h3>
+      <p class="text-muted mb-4" data-i18n="about.intro"></p>
       <p class="text-muted">
-        Unser Fokus: Effizienz, Nachhaltigkeit und wirtschaftliche Skalierbarkeit.
+        <span data-i18n="about.focus"></span>
         <ul class="text-muted space-y-4">
-          <li>Industrielle Energieversorgungslösungen: Maximale Absicherung Ihrer Energiebedarfe und Produktionsprozesse.</li>
-          <li>Batteriegroßspeicher und Netzintegration: Stromabsicherung, Netzstabilisierung und Minimierung von Strompreisrisiken.</li>
-          <li>Energetische Einbindung von Rechenzentren: Kombination aus Batteriespeicher, Netzinfrastruktur und Bereitstellung der notwendigen Infrastruktur für Hyperscaler.</li>
+          <li data-i18n="about.point1"></li>
+          <li data-i18n="about.point2"></li>
+          <li data-i18n="about.point3"></li>
         </ul>
       </p>
     </div>
@@ -114,9 +107,7 @@ body { font-family: 'Inter', sans-serif; }
       <div class="flip-inner relative w-full h-full">
         <div class="flip-front absolute w-full h-full rounded-2xl bg-cover bg-center shadow"
              style="background-image:url('./bilder/Bild2.png')"></div>
-        <div class="flip-back absolute w-full h-full bg-primary text-white flex items-center justify-center rounded-2xl p-6">
-          Industrielle Energiesysteme
-        </div>
+        <div class="flip-back absolute w-full h-full bg-primary text-white flex items-center justify-center rounded-2xl p-6" data-i18n="card1.front"></div>
       </div>
     </div>
 
@@ -124,9 +115,7 @@ body { font-family: 'Inter', sans-serif; }
       <div class="flip-inner relative w-full h-full">
         <div class="flip-front absolute w-full h-full rounded-2xl bg-cover bg-center shadow"
              style="background-image:url('https://images.unsplash.com/photo-1628595351029-c2bf17511435')"></div>
-        <div class="flip-back absolute w-full h-full bg-primary text-white flex items-center justify-center rounded-2xl p-6">
-          Batteriespeicher & Netzintegration
-        </div>
+        <div class="flip-back absolute w-full h-full bg-primary text-white flex items-center justify-center rounded-2xl p-6" data-i18n="card2.front"></div>
       </div>
     </div>
 
@@ -134,9 +123,7 @@ body { font-family: 'Inter', sans-serif; }
       <div class="flip-inner relative w-full h-full">
         <div class="flip-front absolute w-full h-full rounded-2xl bg-cover bg-center shadow"
              style="background-image:url('https://images.unsplash.com/photo-1551836022-d5d88e9218df')"></div>
-        <div class="flip-back absolute w-full h-full bg-primary text-white flex items-center justify-center rounded-2xl p-6">
-          Kompetenz: Trusted Advisor für Finanzinvestoren, Begleiter für alle Anliegen der Investoren gegenüber dem Projekt
-        </div>
+        <div class="flip-back absolute w-full h-full bg-primary text-white flex items-center justify-center rounded-2xl p-6" data-i18n="card3.front"></div>
       </div>
     </div>
 
@@ -147,66 +134,61 @@ body { font-family: 'Inter', sans-serif; }
 <!-- SERVICES -->
 <section id="services" class="py-24 bg-soft px-6">
   <div class="max-w-6xl mx-auto text-center mb-16">
-    <h3 class="text-3xl font-light mb-4">Leistungen</h3>
-    <p class="text-muted">Wir verfügen über die erforderliche Schnittstellenkompetenz zur Sicherung Ihrer Investition und Sicherung der Projekte.</p>
-    <p class="text-muted">Wir sehen uns als Interessenwahrer unserer Finanzpartner. Unser Ziel ist es, die Komplexität der Hochspannungstechnik und der Energiemärkte so zu steuern, dass für den Investor ein transparentes, risikooptimiertes und hochgradig skalierbares Asset entsteht.
-    <br> Wir schaffen und steuern systemrelevante Assets mit nachhaltigem Mehrwert für Ihre Investments.</p>
+    <h3 class="text-3xl font-light mb-4" data-i18n="services.title"></h3>
+    <p class="text-muted" data-i18n="services.intro"></p>
+    <p class="text-muted" data-i18n="services.description" data-i18n-html></p>
   </p>
   </div>
 
   <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-10">
 
     <div class="bg-white p-10 rounded-2xl shadow hover:shadow-lg">
-      <h4 class="font-semibold mb-4">Financial Engineering & Asset-Strategie</h4>
-      <p class="text-muted">Wir vermitteln nicht nur Kapital, wir strukturieren Business Cases. Wir übersetzen technische Parameter in verlässliche Cashflow-Modelle für Finanzpartner. Dabei integrieren wir moderne Vermarktungskonzepte wie Multi-Use-Stacking, Arbitrage-Handel und Systemdienstleistungen sowie Nutzen der Energie für die Industrie.</p>
+      <h4 class="font-semibold mb-4" data-i18n="service1.title"></h4>
+      <p class="text-muted" data-i18n="service1.desc"></p>
     </div>
 
     <div class="bg-white p-10 rounded-2xl shadow hover:shadow-lg">
-      <h4 class="font-semibold mb-4">Technical Program Management</h4>
-      <p class="text-muted">Ein 1.600 MWh-Projekt ist eine logistische und technische Meisterleistung. Wir steuern das gesamte Programm:
+      <h4 class="font-semibold mb-4" data-i18n="service2.title"></h4>
+      <p class="text-muted"><span data-i18n="service2.desc"></span>
         <ul class="text-muted space-y-4">
-          <li>Anbindung an das 400-kV-Netz inklusive Planung der Trafostationen.</li>
-          <li>Sicherstellung der Konnektivität via Darkfiber für Echtzeit-Monitoring.</li>
-          <li>Begleitung der Technologieauswahl (LFP, Na-Ion) und Qualitätssicherung bis zum Commissioning.</li>
+          <li data-i18n="service2.point1"></li>
+          <li data-i18n="service2.point2"></li>
+          <li data-i18n="service2.point3"></li>
         </ul>
       </p>
     </div>
-    
+
     <div class="bg-white p-10 rounded-2xl shadow hover:shadow-lg">
-      <h4 class="font-semibold mb-4">Exklusiver Marktzugang & Networking</h4>
-      <p class="text-muted">Durch den direkten Zugang zu Entscheidern der Energiewirtschaft und ÜNBs identifizieren wir Standorte und Projekte, bevor sie den öffentlichen Markt erreichen. Wir verstehen die Sprache der Netzbetreiber und die regulatorischen Rahmenbedingungen, um komplexe Genehmigungsprozesse (BImSchG, NAP) zum Erfolg zu führen.</p>
+      <h4 class="font-semibold mb-4" data-i18n="service3.title"></h4>
+      <p class="text-muted" data-i18n="service3.desc"></p>
     </div>
 </section>
 
 <!-- CTA -->
 <section class="py-24 bg-primary text-white text-center">
-  <h3 class="text-3xl font-light mb-6 max-w-xl mx-auto">Bereit für die nächste Stufe Ihrer Investionen in der Energieversorgung?</h3>
-  <a href="#contact" class="bg-accent px-8 py-4 rounded-full text-lg inline-block">Jetzt Gespräch starten</a>
+  <h3 class="text-3xl font-light mb-6 max-w-xl mx-auto" data-i18n="cta.title"></h3>
+  <a href="#contact" class="bg-accent px-8 py-4 rounded-full text-lg inline-block" data-i18n="cta.button"></a>
 </section>
 
 <!-- CONTACT -->
 <section id="contact" class="py-24 px-6 text-center">
-  <h3 class="text-3xl font-light mb-8">Kontakt</h3>
+  <h3 class="text-3xl font-light mb-8" data-i18n="contact.title"></h3>
 
   <form class="max-w-xl mx-auto grid gap-5">
-    <input type="text" placeholder="Name" class="p-4 border rounded-xl focus:ring-2 focus:ring-accent outline-none">
-    <input type="email" placeholder="E-Mail" class="p-4 border rounded-xl focus:ring-2 focus:ring-accent outline-none">
-    <textarea placeholder="Nachricht" class="p-4 border rounded-xl h-32 focus:ring-2 focus:ring-accent outline-none"></textarea>
-    <button class="bg-accent text-white py-4 rounded-full text-lg">
-      Anfrage senden
-    </button>
+    <input type="text" data-i18n-placeholder="contact.name" placeholder="Name" class="p-4 border rounded-xl focus:ring-2 focus:ring-accent outline-none">
+    <input type="email" data-i18n-placeholder="contact.email" placeholder="E-Mail" class="p-4 border rounded-xl focus:ring-2 focus:ring-accent outline-none">
+    <textarea data-i18n-placeholder="contact.message" placeholder="Nachricht" class="p-4 border rounded-xl h-32 focus:ring-2 focus:ring-accent outline-none"></textarea>
+    <button class="bg-accent text-white py-4 rounded-full text-lg" data-i18n="contact.submit"></button>
   </form>
 </section>
   
 <!-- FOOTER -->
 <footer class="py-12 text-center text-sm text-muted border-t">
-  <p class="mb-4">HBEE GmbH 
-    <br>Chaltenbodenstrasse 8 
-    <br>8834 Schindellegi 
-    <br>CH - Schweiz</p>
-  <a href="/impressum" class="hover:text-accent">Impressum</a> · 
-  <a href="/datenschutz" class="hover:text-accent">Datenschutz</a> · 
-  <a href="/disclaimer" class="hover:text-accent">Disclaimer / Rechtliche Hinweise</a> · 
+  <p class="mb-4"><span data-i18n="footer.company"></span>
+    <br><span data-i18n="footer.address" data-i18n-html></span></p>
+  <a href="/impressum" class="hover:text-accent" data-i18n="footer.imprint"></a> ·
+  <a href="/datenschutz" class="hover:text-accent" data-i18n="footer.privacy"></a> ·
+  <a href="/disclaimer" class="hover:text-accent" data-i18n="footer.disclaimer"></a> ·
 </footer>
 
 </body>
