@@ -32,11 +32,15 @@ body { font-family: 'Inter', sans-serif; }
 * { transition: all 0.25s ease; }
 
 /* Flip Cards */
-.flip-card { perspective: 1000px; }
+.flip-card {
+  perspective: 1000px;
+  cursor: pointer;
+}
 .flip-inner {
   transform-style: preserve-3d;
+  transition: transform 0.6s;
 }
-.flip-card:hover .flip-inner {
+.flip-card.flipped .flip-inner {
   transform: rotateY(180deg);
 }
 .flip-front, .flip-back {
@@ -44,6 +48,23 @@ body { font-family: 'Inter', sans-serif; }
 }
 .flip-back {
   transform: rotateY(180deg);
+}
+
+/* Desktop: hover to flip */
+@media (hover: hover) and (pointer: fine) {
+  .flip-card:hover .flip-inner {
+    transform: rotateY(180deg);
+  }
+  .flip-card.flipped .flip-inner {
+    transform: rotateY(0deg);
+  }
+}
+
+/* Mobile: scroll-based flip */
+@media (max-width: 768px) {
+  .flip-card:hover .flip-inner {
+    transform: none;
+  }
 }
 </style>
 </head>
@@ -182,6 +203,50 @@ body { font-family: 'Inter', sans-serif; }
     <button class="bg-accent text-white py-4 rounded-full text-lg" data-i18n="contact.submit">Anfrage senden</button>
   </form>
 </section>
+
+<script>
+// Mobile scroll-based flip card interaction
+if (window.innerWidth <= 768) {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const rect = entry.target.getBoundingClientRect();
+        const cardCenter = rect.top + rect.height / 2;
+        const screenCenter = window.innerHeight / 2;
+        const offset = Math.abs(cardCenter - screenCenter);
+
+        // Flip when card is close to center (within 100px)
+        if (offset < 100) {
+          entry.target.classList.add('flipped');
+        } else {
+          entry.target.classList.remove('flipped');
+        }
+      }
+    });
+  }, { threshold: 0.1 });
+
+  // Observe all flip cards on mobile
+  document.querySelectorAll('.flip-card').forEach(card => {
+    observer.observe(card);
+  });
+
+  // Update on scroll for smoother detection
+  window.addEventListener('scroll', () => {
+    document.querySelectorAll('.flip-card').forEach(card => {
+      const rect = card.getBoundingClientRect();
+      const cardCenter = rect.top + rect.height / 2;
+      const screenCenter = window.innerHeight / 2;
+      const offset = Math.abs(cardCenter - screenCenter);
+
+      if (offset < 100) {
+        card.classList.add('flipped');
+      } else {
+        card.classList.remove('flipped');
+      }
+    });
+  }, { passive: true });
+}
+</script>
 
 </body>
 </html>
