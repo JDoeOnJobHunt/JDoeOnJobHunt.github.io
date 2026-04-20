@@ -56,11 +56,16 @@ i18nData = { ...FALLBACK_TRANSLATIONS };
 function getLanguage() {
   const pathname = window.location.pathname;
 
-  // Check if path starts with /en/ or /de/
-  if (pathname.startsWith('/en/')) {
+  // Normalize path - handle trailing slashes
+  const normalizedPath = pathname.toLowerCase();
+
+  // Check if path starts with /en or /en/
+  if (normalizedPath.startsWith('/en/') || normalizedPath.startsWith('/en') && (normalizedPath === '/en' || normalizedPath.split('/')[2] === '')) {
     console.log(`📍 Path: ${pathname}, Detected language: en`);
     return 'en';
-  } else if (pathname.startsWith('/de/')) {
+  }
+  // Check if path starts with /de or /de/
+  else if (normalizedPath.startsWith('/de/') || normalizedPath.startsWith('/de') && (normalizedPath === '/de' || normalizedPath.split('/')[2] === '')) {
     console.log(`📍 Path: ${pathname}, Detected language: de`);
     return 'de';
   }
