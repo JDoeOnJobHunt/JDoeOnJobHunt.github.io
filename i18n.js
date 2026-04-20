@@ -85,8 +85,13 @@ function getLanguage() {
 // Load translation file
 async function loadTranslations(lang) {
   try {
-    console.log(`📥 Fetching translations from /locale/${lang}.json`);
-    const response = await fetch(`/locale/${lang}.json`, { cache: 'no-cache' });
+    const timestamp = new Date().getTime(); // Cache buster
+    const url = `/locale/${lang}.json?v=${timestamp}`;
+    console.log(`📥 Fetching translations from ${url}`);
+    const response = await fetch(url, {
+      cache: 'no-cache',
+      credentials: 'same-origin'
+    });
 
     if (!response.ok) {
       throw new Error(`HTTP ${response.status}`);
@@ -106,7 +111,8 @@ async function loadTranslations(lang) {
     // If not German, try to load German as fallback
     if (lang !== 'de') {
       try {
-        const response = await fetch('/locale/de.json', { cache: 'no-cache' });
+        const timestamp = new Date().getTime();
+        const response = await fetch(`/locale/de.json?v=${timestamp}`, { cache: 'no-cache' });
         if (response.ok) {
           i18nData = await response.json();
           console.log(`✅ Fallback: Loaded German (${Object.keys(i18nData).length} keys)`);
