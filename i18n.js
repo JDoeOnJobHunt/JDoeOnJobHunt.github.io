@@ -52,35 +52,22 @@ const FALLBACK_TRANSLATIONS = {
 // Initialize with fallback
 i18nData = { ...FALLBACK_TRANSLATIONS };
 
-// Detect language from subdomain
+// Detect language from URL path
 function getLanguage() {
-  const hostname = window.location.hostname;
-  const parts = hostname.split('.');
+  const pathname = window.location.pathname;
 
-  // For subdomains like en.example.com, de.example.com
-  const langMap = {
-    'en': 'en',
-    'de': 'de',
-    'www': 'de',
-    'localhost': 'de'
-  };
-
-  // Check if there's actually a subdomain (parts.length > 2 for en.domain.de)
-  // If parts.length === 2, it's a root domain like domain.de
-  let detected = 'de'; // Default to German
-
-  if (parts.length > 2) {
-    // Actual subdomain exists
-    const subdomain = parts[0];
-    detected = langMap[subdomain] || 'de';
-  } else if (parts.length === 1 || hostname === 'localhost') {
-    // Single-level domain or localhost
-    detected = langMap[hostname] || 'de';
+  // Check if path starts with /en/ or /de/
+  if (pathname.startsWith('/en/')) {
+    console.log(`📍 Path: ${pathname}, Detected language: en`);
+    return 'en';
+  } else if (pathname.startsWith('/de/')) {
+    console.log(`📍 Path: ${pathname}, Detected language: de`);
+    return 'de';
   }
-  // For 2-level domains (root), just use default German
 
-  console.log(`📍 Hostname: ${hostname}, Parts: ${parts.length}, Detected language: ${detected}`);
-  return detected;
+  // Default to German for root path
+  console.log(`📍 Path: ${pathname}, Detected language: de (default)`);
+  return 'de';
 }
 
 // Load translation file
