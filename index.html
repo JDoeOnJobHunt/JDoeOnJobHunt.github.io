@@ -284,14 +284,19 @@ input:focus, textarea:focus {
 // Highlight active language button
 function highlightActiveLanguage() {
   const currentLang = window.currentLanguage || 'de';
-  document.getElementById('lang-de-btn')?.classList.remove('active');
-  document.getElementById('lang-en-btn')?.classList.remove('active');
+  const deBtn = document.getElementById('lang-de-btn');
+  const enBtn = document.getElementById('lang-en-btn');
+
+  if (deBtn) deBtn.classList.remove('active');
+  if (enBtn) enBtn.classList.remove('active');
 
   if (currentLang === 'en') {
-    document.getElementById('lang-en-btn')?.classList.add('active');
+    if (enBtn) enBtn.classList.add('active');
   } else {
-    document.getElementById('lang-de-btn')?.classList.add('active');
+    if (deBtn) deBtn.classList.add('active');
   }
+
+  console.log(`🎯 Language buttons updated: Active = ${currentLang}`);
 }
 
 // Call after translations are loaded

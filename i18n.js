@@ -52,33 +52,40 @@ const FALLBACK_TRANSLATIONS = {
 // Initialize with fallback
 i18nData = { ...FALLBACK_TRANSLATIONS };
 
-// Detect language from URL path
+// Detect language from URL path or query parameter
 function getLanguage() {
   const pathname = window.location.pathname;
+  const searchParams = new URLSearchParams(window.location.search);
 
-  console.log(`📍 Full pathname: ${pathname}`);
+  console.log(`📍 Pathname: ${pathname}`);
+  console.log(`📍 Search: ${window.location.search}`);
 
-  // Simple check: does path contain '/en' after root?
+  // Check for query parameter first (e.g., ?lang=en)
+  const queryLang = searchParams.get('lang');
+  if (queryLang === 'en' || queryLang === 'de') {
+    console.log(`✅ Detected language from query param: ${queryLang}`);
+    return queryLang;
+  }
+
+  // Check for path-based routing (e.g., /en/ or /de/)
   if (pathname.includes('/en')) {
-    // Make sure it's not part of another word (check boundaries)
     const parts = pathname.split('/').filter(p => p.length > 0);
     if (parts[0] === 'en') {
-      console.log(`✅ Detected language: en`);
+      console.log(`✅ Detected language from path: en`);
       return 'en';
     }
   }
 
-  // Check for /de
   if (pathname.includes('/de')) {
     const parts = pathname.split('/').filter(p => p.length > 0);
     if (parts[0] === 'de') {
-      console.log(`✅ Detected language: de`);
+      console.log(`✅ Detected language from path: de`);
       return 'de';
     }
   }
 
   // Default to German for root path
-  console.log(`⚠️ No language detected in path, defaulting to: de`);
+  console.log(`⚠️ No language detected, defaulting to: de`);
   return 'de';
 }
 
