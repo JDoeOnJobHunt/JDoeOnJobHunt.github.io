@@ -136,6 +136,12 @@ async function loadTranslations(lang) {
 function t(key) {
   if (!key) return '';
 
+  // First try flat key lookup (e.g., "nav.about")
+  if (key in i18nData) {
+    return i18nData[key];
+  }
+
+  // Then try nested lookup (e.g., {"nav": {"about": "..."}})
   const keys = key.split('.');
   let value = i18nData;
 
