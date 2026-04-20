@@ -344,8 +344,12 @@ if (window.innerWidth <= 768) {
   }, { passive: true });
 }
 
-// Initialize i18n translations
-initI18n();
+// Initialize i18n translations when DOM is ready
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initI18n);
+} else {
+  initI18n();
+}
 </script>
 
 </body>
