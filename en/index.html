@@ -39,19 +39,18 @@ h3 { line-height: 1.25; }
 p { line-height: 1.65; }
 
 /* Language Switcher Styling */
-#lang-toggle {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+.lang-btn {
+  color: #64748B;
+  background-color: transparent;
+  border-radius: 9999px;
 }
-#lang-menu a {
-  color: #0B1220;
+.lang-btn.active {
+  background-color: #2563EB;
+  color: white;
 }
-#lang-menu a:first-child {
-  border-radius: 0.5rem 0.5rem 0 0;
-}
-#lang-menu a:last-child {
-  border-radius: 0 0 0.5rem 0.5rem;
+.lang-btn:hover:not(.active) {
+  color: #2563EB;
+  background-color: #e0e7ff;
 }
 
 /* Flip Cards - refined shadows and softer corners */
@@ -149,24 +148,11 @@ input:focus, textarea:focus {
       <a href="#services" class="hover:text-accent" data-i18n="nav.services">Leistungen</a>
       <a href="#contact" class="bg-accent text-white px-4 py-2 rounded-full" data-i18n="nav.contact">Kontakt</a>
 
-      <!-- Language Switcher Dropdown -->
-      <div class="relative group ml-4 pl-4 border-l border-gray-200">
-        <button id="lang-toggle" class="flex items-center space-x-2 text-sm font-medium text-muted hover:text-accent transition-colors">
-          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-            <path fill-rule="evenodd" d="m5.505 14.829 1.414-1.414L10 13.828l3.081-3.081 1.414 1.414-4.495 4.495-4.495-4.495zm0-4.242L6.919 7.172 10 4.09l3.081 3.081 1.414-1.414-4.495-4.495-4.495 4.495z" clip-rule="evenodd"></path>
-          </svg>
-          <span id="current-lang" class="font-semibold">DE</span>
-        </button>
-
-        <!-- Dropdown Menu -->
-        <div id="lang-menu" class="absolute right-0 mt-2 w-40 bg-white border border-gray-200 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-          <a href="/de/" class="lang-option block w-full text-left px-4 py-3 hover:bg-soft text-sm font-medium transition-colors" data-lang="de">
-            🇩🇪 Deutsch
-          </a>
-          <div class="border-t border-gray-100"></div>
-          <a href="/en/" class="lang-option block w-full text-left px-4 py-3 hover:bg-soft text-sm font-medium transition-colors" data-lang="en">
-            🇬🇧 English
-          </a>
+      <!-- Language Switcher Toggle -->
+      <div class="ml-4 pl-4 border-l border-gray-200">
+        <div class="flex items-center space-x-1 bg-soft rounded-full p-1">
+          <a href="/de/" class="lang-btn px-3 py-1 text-xs font-semibold rounded-full transition-all" id="lang-de-btn" data-lang="de">DE</a>
+          <a href="/en/" class="lang-btn px-3 py-1 text-xs font-semibold rounded-full transition-all" id="lang-en-btn" data-lang="en">EN</a>
         </div>
       </div>
     </nav>
