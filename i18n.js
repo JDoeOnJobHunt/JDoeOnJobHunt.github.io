@@ -175,6 +175,9 @@ async function loadSharedFooter() {
 // Replace all elements with data-i18n attribute
 function applyTranslations() {
   console.log('🔄 Applying translations to page...');
+  console.log('📊 i18nData keys:', Object.keys(i18nData).length);
+  console.log('📋 i18nData:', i18nData);
+
   let count = 0;
   let applied = 0;
 
@@ -182,6 +185,8 @@ function applyTranslations() {
     count++;
     const key = element.getAttribute('data-i18n');
     const translation = t(key);
+
+    console.log(`  [${count}] Key: "${key}" → Value: "${translation}"`);
 
     if (translation && translation !== key) {
       // For HTML content (like <br> tags)
@@ -191,6 +196,9 @@ function applyTranslations() {
         element.textContent = translation;
       }
       applied++;
+      console.log(`      ✅ Applied`);
+    } else {
+      console.log(`      ⚠️ Not applied (same as key)`);
     }
   });
 
@@ -214,20 +222,23 @@ async function initI18n() {
 
   try {
     const lang = getLanguage();
-    console.log(`🌍 Initializing for language: ${lang}`);
+    console.log(`🌍 Detected language: ${lang}`);
 
     // Load translations
-    await loadTranslations(lang);
+    console.log(`📥 Loading translations for: ${lang}`);
+    const loaded = await loadTranslations(lang);
+    console.log(`📥 Translations loaded: ${loaded}`);
 
     // Load footer
     await loadSharedFooter();
 
     // Apply translations
+    console.log(`🔄 Applying translations...`);
     applyTranslations();
 
     // Store current language
     window.currentLanguage = lang;
-    console.log('✅ i18n Initialization Complete');
+    console.log(`✅ i18n Initialization Complete - Language: ${lang}`);
   } catch (error) {
     console.error('❌ i18n Initialization Failed:', error);
   }
