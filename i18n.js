@@ -56,22 +56,29 @@ i18nData = { ...FALLBACK_TRANSLATIONS };
 function getLanguage() {
   const pathname = window.location.pathname;
 
-  // Normalize path - handle trailing slashes
-  const normalizedPath = pathname.toLowerCase();
+  console.log(`📍 Full pathname: ${pathname}`);
 
-  // Check if path starts with /en or /en/
-  if (normalizedPath.startsWith('/en/') || normalizedPath.startsWith('/en') && (normalizedPath === '/en' || normalizedPath.split('/')[2] === '')) {
-    console.log(`📍 Path: ${pathname}, Detected language: en`);
-    return 'en';
+  // Simple check: does path contain '/en' after root?
+  if (pathname.includes('/en')) {
+    // Make sure it's not part of another word (check boundaries)
+    const parts = pathname.split('/').filter(p => p.length > 0);
+    if (parts[0] === 'en') {
+      console.log(`✅ Detected language: en`);
+      return 'en';
+    }
   }
-  // Check if path starts with /de or /de/
-  else if (normalizedPath.startsWith('/de/') || normalizedPath.startsWith('/de') && (normalizedPath === '/de' || normalizedPath.split('/')[2] === '')) {
-    console.log(`📍 Path: ${pathname}, Detected language: de`);
-    return 'de';
+
+  // Check for /de
+  if (pathname.includes('/de')) {
+    const parts = pathname.split('/').filter(p => p.length > 0);
+    if (parts[0] === 'de') {
+      console.log(`✅ Detected language: de`);
+      return 'de';
+    }
   }
 
   // Default to German for root path
-  console.log(`📍 Path: ${pathname}, Detected language: de (default)`);
+  console.log(`⚠️ No language detected in path, defaulting to: de`);
   return 'de';
 }
 
